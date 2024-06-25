@@ -7,9 +7,9 @@ for i in arr1:
     print(i)
     if i > x:
         print(i)
-        y=x
+        y = x
         print(y)
         x = i
-    if i<x and i>y:
+    if i < x and i > y:
         y = i
 print(y)
