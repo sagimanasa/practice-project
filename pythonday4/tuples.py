@@ -1,0 +1,30 @@
+tup=(10,20,30)
+x,*y,z=tup
+print(y)
+my_set=set()
+my_set.add("c")
+my_set.add("python")
+print(my_set)
+my_set.update(["java"])
+print(my_set)
+#my_set.delete(["c"])
+#print(my_set)# error occurs because set has no attribute as delete
+a={1,2,3,4}
+b=[4,5,6]
+c=a.union (b)
+print(c)
+set={1,2,3}
+set.remove(3)
+print(set)
+set.clear()
+print(set)
+set1={1,2,3,4}
+set2={3,4,5,6}
+set1.intersection_update(set2)
+print(set1)
+set3=set1.symmetric_difference(set2)
+print(set3)
+a1={1,2,3}
+a2={3,4,5}
+a3=a1.union(a2)
+print(a3)
