@@ -4,17 +4,17 @@ class Node: #cls to create nodes of linked list
         self.address=address
 class Stack:
     def __init__(self):
-        self.head=Node()#head is default null
+        self.head=Node() #head is default null
 
-    def is_empty(self):#checks if stack is empty or not
+    def is_empty(self): #checks if stack is empty or not
         if self.head.address is None:
             return True
         return False
 
-    def push(self,value):#method to add data to stack
+    def push(self,value): #method to add data to stack
         temp=Node(value,self.head)
         self.head=temp
-    def pop(self):#remove element which is in head
+    def pop(self): #remove element which is in head
         x=self.head.value
         self.head=self.head.address
         return x
