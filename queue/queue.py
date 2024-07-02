@@ -34,4 +34,3 @@ for item in arr:
 while(not que.is_empty()):
     x = que.pop()
     print(x)
-
