@@ -55,6 +55,22 @@ class Tree:#creating tree class
 
         return output
 
+    def deleterec(self,node,value):
+        if value<node.value:
+            self.deleterec(value,node.left)
+        if value>node.value:
+            self.deleterec(value,node.right)
+        elif value==node.value:
+            self.deleterec(value,node.value)
+
+
+    def delete(self,value):
+        if self.root is not None:
+            self.deleterec(value,self.root)
+
+
+
+
 arr = [2,6,1,9,4,5]
 tree = Tree()
 #tree.display()
@@ -66,3 +82,4 @@ for value in arr:
 tree.display()
 print("#######")
 print(tree.get())
+print(tree.delete(6))
