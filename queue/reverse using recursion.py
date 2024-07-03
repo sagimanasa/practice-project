@@ -1,8 +1,8 @@
-def swap(arr,i,j):
-    temp=arr[i]
-    arr[i]=arr[j]
-    arr[j]=temp
-
+# def swap(arr,i,j):
+#     temp=arr[i]
+#     arr[i]=arr[j]
+#     arr[j]=temp
+from swap import swap
 
 def reversearr(arr,i,j):
     if i>=j:

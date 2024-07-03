@@ -1,7 +1,8 @@
-def swap(arr,i,j):#function creation
-        temp=arr[i] #value in arr at index i is stored in temp variable
-        arr[i]=arr[j]#value stored at index j will be moved to index i location in arr
-        arr[j]=temp ##value in arr at index j is stored in temp variable
+# def swap(arr,i,j):#function creation
+#         temp=arr[i] #value in arr at index i is stored in temp variable
+#         arr[i]=arr[j]#value stored at index j will be moved to index i location in arr
+#         arr[j]=temp ##value in arr at index j is stored in temp variable
+from swap_array import swap
 def reverse_array(arr):#reverse function creation
     i=0
     j=len(arr)-1
