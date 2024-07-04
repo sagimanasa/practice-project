@@ -10,7 +10,7 @@ def sum(arr):
     return x
 arr=[3,4,9,1,7]
 x=sum(arr)
-#print(x)
+print(x)
 
 # print("##############")
 # def sum(arr):
