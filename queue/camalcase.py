@@ -20,5 +20,3 @@ def camel_case(sentence):
     return string
 sentence = "my name is manasa"
 print(camel_case(sentence))
-
-
