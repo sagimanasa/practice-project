@@ -29,8 +29,6 @@ for item in arr:
     print(item)
     que.insert(item)
     print(que)
-
-
 while(not que.is_empty()):
     x = que.pop()
     print(x)
