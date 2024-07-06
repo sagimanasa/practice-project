@@ -13,13 +13,13 @@ def upper_case(sentence):#converts all lowercase into uppercase
 sentence="My Name Is Manasa"
 print(upper_case(sentence))
 
-def translate_case(sentence):#
+def translate_case(sentence):
     return ' '.join([word.translate(sentence)for word in str.split(sentence)])
 sentence="my Name is Manasa"
 print(translate_case(sentence))
 
 def title_case(sentence):#converts first letter of words in string as capital
-    return ' '.join([word.title()for word in str.split(sentence)])
+    return ' '.join([word.title() for word in str.split(sentence)])
 sentence="My Name Is Manasa"
 print(title_case(sentence))
 
