@@ -20,8 +20,8 @@ class Stack:
         return x
 
 
-arr=[1,2,3,4,5,6,7]
-st=Stack()
+arr = [1, 2, 3, 4, 5, 6, 7]
+st = Stack()
 for item in arr:#iteration of arr
     st.push(item)
     #print(st)
