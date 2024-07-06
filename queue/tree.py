@@ -1,14 +1,14 @@
 class Node:  # creating node class
-    def __init__(self, left = None, value = None, right = None):
+    def __init__(self, left=None, value=None, right=None):
         self.value = value
         self.left = left
         self.right = right
 
 
-class Tree:#creating tree class
+class Tree:  # creating tree class
     def __init__(self):
         self.root = None
-    def insert(self, value):#if there is no value in root value will be placed
+    def insert(self, value):  # if there is no value in root value will be placed
         if self.root is None:
             self.root = Node(None, value, None)
         else:
@@ -55,18 +55,18 @@ class Tree:#creating tree class
 
         return output
 
-    def deleterec(self,node,value):
-        if value<node.value:
-            self.deleterec(value,node.left)
-        if value>node.value:
-            self.deleterec(value,node.right)
-        elif value==node.value:
-            self.deleterec(value,node.value)
-
-
-    def delete(self,value):
-        if self.root is not None:
-            self.deleterec(value,self.root)
+    # def deleterec(self,node,value):
+    #     if value<node.value:
+    #         self.deleterec(value,node.left)
+    #     if value>node.value:
+    #         self.deleterec(value,node.right)
+    #     elif value==node.value:
+    #         self.deleterec(value,node.value)
+    #
+    #
+    # def delete(self,value):
+    #     if self.root is not None:
+    #         self.deleterec(value,self.root)
 
 
 
@@ -82,4 +82,3 @@ for value in arr:
 tree.display()
 print("#######")
 print(tree.get())
-print(tree.delete(6))

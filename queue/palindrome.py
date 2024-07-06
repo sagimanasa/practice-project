@@ -1,4 +1,4 @@
-def palindrome(arr,i,j):
+def palindrome(arr, i, j):
     print(i)
     print(j)
     if i == j:
@@ -6,13 +6,13 @@ def palindrome(arr,i,j):
         print(j)
         return True
     if arr[i] == arr[j]:
-       print("Index: ",str(i))
+       print("Index: ", str(i))
        print(j)
-       x=palindrome(arr,i+1,j-1)
+       x=palindrome(arr, i+1, j-1)
        print(i)
        print(j)
        return x
     return False
-arr=[1,2,3,4,3,2,1]
+arr = [1, 2, 3, 4, 3, 2, 1]
 print(arr)
-print(palindrome(arr,0,len(arr)-1))
+print(palindrome(arr, 0, len(arr)-1))
