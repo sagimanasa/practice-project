@@ -1,0 +1,25 @@
+created a schema named firstproject
+CREATE SCHEMA firstproject
+#to create a table
+CREATE TABLE firstproject.student(
+  Stdid Int NOT NULL,
+  Stdname VARCHAR(40) NOT NULL,
+  Stdage INT NOT NULL,
+PRIMARY KEY(Stdid));
+#to read the table
+Select * from firstproject.student;
+#to insert data in table
+INSERT INTO `firstproject`.`student` (`Stdid`, `Stdname`, `Stdage`) VALUES ('1', 'Manasa', '21');
+INSERT INTO `firstproject`.`student` (`Stdid`, `Stdname`, `Stdage`) VALUES ('2', 'Hasmitha', '15');
+INSERT INTO `firstproject`.`student` (`Stdid`, `Stdname`, `Stdage`) VALUES ('3', 'Rishitha', '23');
+INSERT INTO `firstproject`.`student` (`Stdid`, `Stdname`, `Stdage`) VALUES ('4', 'yaswitha', '23');
+#to update the table
+UPDATE student
+SET Stdage=16
+Where Stdid=2;
+#to delete only one row in table
+DELETE from student
+WHERE Stdid=2
+#to delete entire table
+DELETE from student
+select * from student
