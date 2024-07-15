@@ -22,4 +22,4 @@ DELETE from student
 WHERE Stdid=2
 #to delete entire table
 DELETE from student
-select * from student
+select * from student;
