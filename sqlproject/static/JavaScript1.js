@@ -2,7 +2,7 @@ angular.module('userApp', [])
   .controller('userCtrl', function($scope, $http) {
     
     $scope.userList = [];
-	$scope.domain="http://192.168.1.11:8000/"
+	$scope.domain="http://192.168.56.1:8000/"
 	
 	$scope.initialization = function(){
 		$scope.getUser(); 
