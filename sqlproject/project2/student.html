@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Database</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container border m-5">
+        <form>
+		    <h1 class="text-center">STUDENTS DATA</h1>
+			<div class="row m-1">
+                <label for="colFormLabel" class="col-sm-2 col-form-label">ID</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" ng-model="newuser.id" placeholder="Enter your id" style="width: 300px;" >
+                </div>
+            </div>
+			
+			<div class="row m-1">
+                <label for="colFormLabel" class="col-sm-2 col-form-label">NAME</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" ng-model="newuser.name" placeholder="Enter your NAME" style="width: 300px;" >
+                </div>
+            </div>
+			<div class="row m-1">
+                <label for="colFormLabel" class="col-sm-2 col-form-label">AGE</label>
+                <div class="col-sm-10">
+                    <input type="number" class="form-control" ng-model="newuser.age" placeholder="Enter your age" style="width: 300px;" >
+                </div>
+            </div>
+			<div class="row m-1">
+                <label for="colFormLabel" class="col-sm-2 col-form-label">GENDER</label>
+                <div class="col-sm-10">
+					<select class="form-control" ng-model="newuser.gender" style="width: 300px;">
+                    <option value="">Select your gender</option>
+                    <option value="M">M</option>
+                    <option value="F">F</option>
+                   </select>
+                </div>
+            </div>
+			
+		    <div class="row m-1 ">
+				<div class="col-sm-2">
+					<button type="button" class="btn btn-primary" ng-click="addUser(newuser)">ADD</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="container">
+        
+        <div class="right">
+            <h2>STUDENTS MARKS</h2>
+			<div class="row m-1">
+                <label for="colFormLabel" class="col-sm-2 col-form-label">id</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" ng-model="newuser.id" placeholder="Enter your id" style="width: 300px;" >
+                </div>
+            </div>
+			<div class="row m-1">
+                <label for="colFormLabel" class="col-sm-2 col-form-label">name</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" ng-model="newuser.name" placeholder="Enter your NAME" style="width: 300px;" >
+                </div>
+            </div>
+			<div class="row m-1">
+                <label for="colFormLabel" class="col-sm-2 col-form-label">cls</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" ng-model="newuser.cls" placeholder="Enter your cls" style="width: 300px;" >
+                </div>
+            </div>
+			<div class="row m-1">
+                <label for="colFormLabel" class="col-sm-2 col-form-label">maths</label>
+                <div class="col-sm-10">
+                    <input type="number" class="form-control" ng-model="newuser.maths" placeholder="Enter your maths marks" style="width: 300px;" >
+                </div>
+            </div>
+			<div class="row m-1">
+                <label for="colFormLabel" class="col-sm-2 col-form-label">physics</label>
+                <div class="col-sm-10">
+                    <input type="number" class="form-control" ng-model="newuser.physics" placeholder="Enter your physics marks" style="width: 300px;" >
+                </div>
+            </div>
+			<div class="row m-1">
+                <label for="colFormLabel" class="col-sm-2 col-form-label">chemistry</label>
+                <div class="col-sm-10">
+                    <input type="number" class="form-control" ng-model="newuser.chemistry" placeholder="Enter your chemistry marks" style="width: 300px;" >
+                </div>
+            </div>
+			<div class="row m-1">
+                <label for="colFormLabel" class="col-sm-2 col-form-label">total</label>
+                <div class="col-sm-10">
+                    <input type="marks" class="form-control" ng-model="newuser.total" placeholder="Enter your total" style="width: 300px;" >
+                </div>
+            </div>
+			<div class="row m-1 ">
+				<div class="col-sm-2">
+					<button type="button" class="btn btn-primary" ng-click="addUser(newuser)">ADD</button>
+                </div>
+            </div>
+			
+            
+        </div>
+    </div>
+
+</body>
+</html>
