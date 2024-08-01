@@ -32,7 +32,7 @@ class Database:
         conn.commit()
         print(cursorObj.rowcount, "data created successfully")
 
-    def read_student(self):
+    def read_students(self):
         arr = []
         conn = self.create_connection()
         cursorObj = conn.cursor()
@@ -55,7 +55,6 @@ class Database:
             arr.append(record)
         conn.close()
         return arr
-
 
     def update_student(self, STD_ID, NAME, AGE, GENDER):
         conn = self.create_connection()
@@ -92,3 +91,8 @@ class Database:
         cursorObj.execute(query, values)
         conn.commit()
         print("data deleted successfully")
+studentdb=Database()
+#studentdb.create_student(2,"honey",14,"F")
+#studentdb.create_marks(2,2,"maths",75)
+#studentdb.read_student()
+#studentdb.create_marks(2,3,"maths",70)
