@@ -41,8 +41,8 @@ async def delete_marks(ID):
     studentdb.delete_marks(ID)
     return {"message":"sucess"}
 @app.post("/marks/{ID}")
-async def update_marks(STD_ID,marks:marks):
-    studentdb.update_marks(marks.ID,marks.SUBJECT,marks.MARKS,STD_ID)
+async def update_marks(marks:marks):
+    studentdb.update_marks(marks.ID,marks.MARKS)
     return {"message":"sucess"}
 @app.put("/marks")
 async def create_marks(marks:marks):

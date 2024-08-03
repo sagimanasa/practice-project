@@ -65,11 +65,11 @@ class Database:
         conn.commit()
         print("data updated successfully")
 
-    def update_marks(self, STD_ID,ID,SUBJECT,MARKS):
+    def update_marks(self, ID,MARKS):
         conn = self.create_connection()
         cursorObj = conn.cursor()
-        query = "UPDATE student SET ID=%s,SUBJECT=%s,MARKS=%s WHERE STD_ID=%s"
-        values = (ID, SUBJECT, MARKS, STD_ID)
+        query = "UPDATE marks SET MARKS=%s WHERE ID=%s"
+        values = (MARKS, ID)
         cursorObj.execute(query, values)
         conn.commit()
         print("data updated successfully")
