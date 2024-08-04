@@ -65,11 +65,11 @@ class Database:
         conn.commit()
         print("data updated successfully")
 
-    def update_marks(self, ID,MARKS):
+    def update_marks(self, ID,MARKS,SUBJECT):
         conn = self.create_connection()
         cursorObj = conn.cursor()
-        query = "UPDATE marks SET MARKS=%s WHERE ID=%s"
-        values = (MARKS, ID)
+        query = "UPDATE marks SET MARKS=%s,SUBJECT=%s WHERE ID=%s"
+        values = (MARKS,SUBJECT,ID)
         cursorObj.execute(query, values)
         conn.commit()
         print("data updated successfully")
@@ -77,18 +77,26 @@ class Database:
     def delete_student(self, STD_ID):
         conn = self.create_connection()
         cursorObj = conn.cursor()
-        query = "DELETE FROM student WHERE STD_ID=%s"
-        values = (STD_ID,)
+        query = "DELETE from student WHERE STD_ID=%s"
+        values = (int(STD_ID),)
         cursorObj.execute(query, values)
         conn.commit()
         print("data deleted successfully")
 
-    def delete_marks(self, ID):
+    def delete_marks_id(self, ID):
         conn = self.create_connection()
         cursorObj = conn.cursor()
         query = "DELETE FROM marks WHERE ID=%s"
         values = (ID,)
         cursorObj.execute(query, values)
+        conn.commit()
+        print("data deleted successfully")
+    def delete_marks_std_id(self,STD_ID):
+        conn=self.create_connection()
+        cursorObj=conn.cursor()
+        query="DELETE FROM marks WHERE STD_ID=%s"
+        values=(int(STD_ID),)
+        cursorObj.execute(query,values)
         conn.commit()
         print("data deleted successfully")
 studentdb=Database()

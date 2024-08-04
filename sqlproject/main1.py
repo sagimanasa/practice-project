@@ -10,14 +10,14 @@ class student(BaseModel):
     NAME:str
     AGE:int
     GENDER:str
-
-@app.delete("/student/{STD_ID}")
-async def delete_student(STD_ID):
-    studentdb.delete_student(STD_ID)
+@app.delete("/student/{std_id}")
+async def delete_student(std_id):
+    studentdb.delete_marks_std_id(std_id)
+    studentdb.delete_student(std_id)
     return {"message":"sucess"}
-@app.post("/student/{STD_ID}")
-async def update_student(STD_ID,student:student):
-    studentdb.update_student(STD_ID,student.NAME,student.AGE,student.GENDER)
+@app.post("/student/{std_id}")
+async def update_student(std_id,student:student):
+    studentdb.update_student(std_id,student.NAME,student.AGE,student.GENDER)
     return {"message":"sucess"}
 @app.put("/student")
 async def create_student(student:student):
@@ -36,13 +36,18 @@ class marks(BaseModel):
     ID:int
     SUBJECT:str
     MARKS:int
-@app.delete("/marks/{ID}")
-async def delete_marks(ID):
-    studentdb.delete_marks(ID)
+
+@app.delete("/marks/marks_id/{marks_id}")
+async def delete_marks_id(marks_id):
+    studentdb.delete_marks_id(marks_id)
     return {"message":"sucess"}
-@app.post("/marks/{ID}")
-async def update_marks(marks:marks):
-    studentdb.update_marks(marks.ID,marks.MARKS)
+@app.delete("/marks/student_id/{student_id}")
+async def delete_marks_std_id(student_id):
+    studentdb.delete_marks_std_id(student_id)
+    return {"message":"success"}
+@app.post("/marks/{marks_id}")
+async def update_marks(marks_id,marks:marks):
+    studentdb.update_marks(marks_id,marks.MARKS,marks.SUBJECT)
     return {"message":"sucess"}
 @app.put("/marks")
 async def create_marks(marks:marks):
