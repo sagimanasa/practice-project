@@ -7,36 +7,36 @@
  	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>  	
-    <script src="JavaScript1.js"></script>  
+    <script src="JavaScript.js"></script>  
 </head>
 
 <body>
 <div ng-controller="userCtrl" ng-init="initialization()"> 
-	<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"> 
 	  <div class="modal-dialog">
 		<div class="modal-content">
 		  <div class="modal-header">
-			<h5 class="modal-title" id="exampleModalLabel">New message </h5>
+			<h5 class="modal-title" id="exampleModalLabel"> Update Data </h5>
 			<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 		  </div>
 		  <div class="modal-body">
 			<form>
 			  <div class="mb-3">
-				<label for="updateduserid" class="col-form-label">ID:</label>
-				<input type="number" class="form-control" ng-model="updateuser.id" id="updateduserid">
+				<label for="updatedstudentid" class="col-form-label">STD_ID:</label>
+				<input type="number" class="form-control" ng-model="updatestudent.std_id" id="updatedstudentid">
+			  </div>
+			  <div class="mb-3"> 
+				<label for="updatedstudentname" class="col-form-label">NAME:</label>
+				<input type="text" class="form-control" ng-model="updatestudent.name" id="updatedstudentname">
 			  </div>
 			  <div class="mb-3">
-				<label for="updatedusername" class="col-form-label">NAME:</label>
-				<input type="text" class="form-control" ng-model="updateuser.name" id="updatedusername">
-			  </div>
+				<label for="updatedstudentage" class="col-form-label">AGE:</label>
+				<input type="number" class="form-control" ng-model="updatestudent.age" id="updatedstudentage">
+			  </div> 
 			  <div class="mb-3">
-				<label for="updateduserage" class="col-form-label">AGE:</label>
-				<input type="number" class="form-control" ng-model="updateuser.age" id="updateduserage">
-			  </div>
-			  <div class="mb-3">
-                <label for="updatedusergender" class="col-form-label">GENDER</label>
+                <label for="updatedstudentgender" class="col-form-label">GENDER</label>
                 <div class="col-sm-10">
-					<select class="form-control" id="updatedusergender" ng-model="updateuser.gender" style="width: 470px;">
+					<select class="form-control" id="updatedstudentgender" ng-model="updatestudent.gender" style="width: 470px;">
                     <option value="">Select your gender</option>
                     <option value="M">M</option>
                     <option value="F">F</option>
@@ -46,7 +46,7 @@
 			</form>
 		  </div>		  
 		  <div class="modal-footer">
-			<button type="button" class="btn btn-primary" data-bs-dismiss="modal" ng-click="updateUser(updateuser)">Update</button>
+			<button type="button" class="btn btn-primary" data-bs-dismiss="modal" ng-click="updateStudent(updatestudent)">Update</button>
 			<button type="button" class="btn btn-danger" data-bs-dismiss="modal">close</button>
 		  </div>
 		</div>
@@ -63,34 +63,33 @@
 				Do you want to delete record?
 			  </div>
 			  <div class="modal-footer">
-			    <button type="button" class="btn btn-primary"data-bs-dismiss="modal" ng-click="deleteUser()">Yes</button>
+			    <button type="button" class="btn btn-primary"data-bs-dismiss="modal" ng-click="deleteStudent()">Yes</button>
 				<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">NO</button>
 			  </div>
 			</div>
 		</div>
-	</div>  
+	</div>
+	
  
     <div class="container border m-5">
         <form>
-		    <h2 class="text-center">USERS DATA</h2>
-			
-			
+		    <h2 class="text-center">STUDENT DATA</h2>					
 			<div class="row m-1">
-                <label for="colFormLabel" class="col-sm-2 col-form-label">NAME</label>
+                <label for="addstudentname" class="col-sm-2 col-form-label">NAME</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" ng-model="newuser.name" placeholder="Enter your NAME" style="width: 300px;" >
+                    <input type="text" class="form-control" id="addstudentname" ng-model="newstudent.name" placeholder="Enter your name" style="width: 300px;" >
                 </div>
             </div>
 			<div class="row m-1">
-                <label for="colFormLabel" class="col-sm-2 col-form-label">AGE</label>
+                <label for="addstudentage" class="col-sm-2 col-form-label">AGE</label>
                 <div class="col-sm-10">
-                    <input type="number" class="form-control" ng-model="newuser.age" placeholder="Enter your age" style="width: 300px;" >
+                    <input type="number" class="form-control" id="addstudentage" ng-model="newstudent.age" placeholder="Enter your age" style="width: 300px;" >
                 </div>
             </div>
 			<div class="row m-1">
-                <label for="colFormLabel" class="col-sm-2 col-form-label">GENDER</label>
+                <label for="addstudentgender" class="col-sm-2 col-form-label">GENDER</label>
                 <div class="col-sm-10">
-					<select class="form-control" ng-model="newuser.gender" style="width: 300px;">
+					<select class="form-control" id="addstudentgender" ng-model="newstudent.gender" style="width: 300px;">
                     <option value="">Select your gender</option>
                     <option value="M">M</option>
                     <option value="F">F</option>
@@ -100,7 +99,7 @@
 			
 		    <div class="row m-1 ">
 				<div class="col-sm-2">
-					<button type="button" class="btn btn-primary" ng-click="addUser(newuser)">ADD</button>
+					<button type="button" class="btn btn-primary" ng-click="addStudent(newstudent)">ADD</button>
                 </div>
             </div>
         </form>
@@ -111,27 +110,31 @@
 			<table class="table table-hover table-striped">  				
 				<thead class="table-dark">
 					<tr>  
-						<th width="5%">id</th>  
-						<th width="60%">name</th>  
+						<th width="5%">std_id</th>  
+						<th width="50%">name</th>  
 						<th width="5%">age</th>  
 						<th width="10%">gender</th>  
-						<th width="10%">#</th>
-						<th width="10%">#</th>
+						<th width="10%"></th>
+						<th width="10%"></th>
+						<th width="10%"></th>
 					</tr>				
 				</thead>  
 				
 				<tbody class="table-group-divider">  	  
-					<tr ng-repeat="user in userList" c>  
-						<td width="5%">{{user.id}}</td>  
-						<td width="60%">{{user.name}}</td>  
-						<td width="5%">{{user.age}}</td>  
-						<td width="10%">{{user.gender}}</td>  
+					<tr ng-repeat="student in studentList" c>  
+						<td width="5%">{{student.std_id}}</td>  
+						<td width="50%">{{student.name}}</td>  
+						<td width="5%">{{student.age}}</td>  
+						<td width="10%">{{student.gender}}</td>  
 						<td width="10%">
-							<button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" ng-click="updateform(user)" data-bs-target="#exampleModal" >update</button>
+							<button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" ng-click="updateform(student)" data-bs-target="#exampleModal" >update</button>
 						</td>
 						<td width="10%">
-							<button type="button" class="btn btn-danger btn-sm"data-bs-toggle="modal" ng-click="deleteform(user.id)"data-bs-target="#staticBackdrop">Delete</button>
-						</td>						
+							<button type="button" class="btn btn-danger btn-sm"data-bs-toggle="modal" ng-click="deleteform(student.std_id)"data-bs-target="#staticBackdrop">Delete</button>
+						</td>
+						<td width="10%">
+							<button type="button" class="btn btn-success btn-sm"data-bs-toggle="modal" ng-click="viewmarks(student.std_id)"data-target="#exampleModal" >viewmarks</button>
+						</td>
 					</tr>					
 				</tbody>  
 			</table>  
@@ -140,3 +143,6 @@
 </div>  
 </body>
 </html>
+
+
+

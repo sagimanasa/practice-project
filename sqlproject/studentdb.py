@@ -14,20 +14,20 @@ class Database:
         )
         return connection
 
-    def create_student(self,STD_ID,NAME, AGE, GENDER):
+    def create_student(self,name, age, gender):
         conn = self.create_connection()
         cursorObj = conn.cursor()
-        query = "INSERT INTO student(STD_ID,NAME,AGE,GENDER)VALUES(%s,%s,%s,%s)"
-        val = (STD_ID,NAME, AGE, GENDER)
+        query = "INSERT INTO student(name,age,gender)VALUES(%s,%s,%s)"
+        val = (name,age,gender)
         cursorObj.execute(query, val)
         conn.commit()
         print(cursorObj.rowcount, "data created successfully")
 
-    def create_marks(self, STD_ID,ID,SUBJECT,MARKS):
+    def create_marks(self, std_id,id,subject,marks):
         conn = self.create_connection()
         cursorObj = conn.cursor()
-        query = "INSERT INTO marks(STD_ID,ID,SUBJECT,MARKS)VALUES(%s,%s,%s,%s)"
-        val = (STD_ID,ID,SUBJECT,MARKS)
+        query = "INSERT INTO marks(std_id,id,subject,marks)VALUES(%s,%s,%s,%s)"
+        val = (std_id,id,subject,marks)
         cursorObj.execute(query, val)
         conn.commit()
         print(cursorObj.rowcount, "data created successfully")
@@ -56,46 +56,46 @@ class Database:
         conn.close()
         return arr
 
-    def update_student(self, STD_ID, NAME, AGE, GENDER):
+    def update_student(self, std_id,name,age,gender):
         conn = self.create_connection()
         cursorObj = conn.cursor()
-        query = "UPDATE student SET AGE=%s,NAME=%s,GENDER=%s WHERE STD_ID=%s"
-        values = (AGE, NAME, GENDER, STD_ID)
+        query = "UPDATE student SET age=%s,name=%s,gender=%s WHERE std_id=%s"
+        values = (age, name, gender, std_id)
         cursorObj.execute(query, values)
         conn.commit()
         print("data updated successfully")
 
-    def update_marks(self, ID,MARKS,SUBJECT):
+    def update_marks(self, id,marks,subject):
         conn = self.create_connection()
         cursorObj = conn.cursor()
-        query = "UPDATE marks SET MARKS=%s,SUBJECT=%s WHERE ID=%s"
-        values = (MARKS,SUBJECT,ID)
+        query = "UPDATE marks SET marks=%s,subject=%s WHERE id=%s"
+        values = (marks,subject,id)
         cursorObj.execute(query, values)
         conn.commit()
         print("data updated successfully")
 
-    def delete_student(self, STD_ID):
+    def delete_student(self, std_id):
         conn = self.create_connection()
         cursorObj = conn.cursor()
-        query = "DELETE from student WHERE STD_ID=%s"
-        values = (int(STD_ID),)
+        query = "DELETE from student WHERE std_id=%s"
+        values = (int(std_id),)
         cursorObj.execute(query, values)
         conn.commit()
         print("data deleted successfully")
 
-    def delete_marks_id(self, ID):
+    def delete_marks_id(self, id):
         conn = self.create_connection()
         cursorObj = conn.cursor()
-        query = "DELETE FROM marks WHERE ID=%s"
-        values = (ID,)
+        query = "DELETE FROM marks WHERE id=%s"
+        values = (id,)
         cursorObj.execute(query, values)
         conn.commit()
         print("data deleted successfully")
-    def delete_marks_std_id(self,STD_ID):
+    def delete_marks_std_id(self,std_id):
         conn=self.create_connection()
         cursorObj=conn.cursor()
-        query="DELETE FROM marks WHERE STD_ID=%s"
-        values=(int(STD_ID),)
+        query="DELETE FROM marks WHERE std_id=%s"
+        values=(int(std_id),)
         cursorObj.execute(query,values)
         conn.commit()
         print("data deleted successfully")
