@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" ng-app="userApp">
+<html lang="en" ng-app="userApp" ng-app="marksApp">
 <head>    
 	<meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -7,7 +7,7 @@
  	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>  	
-    <script src="JavaScript.js"></script>  
+    <script src="new4.js"></script>  
 </head>
 
 <body>
@@ -42,7 +42,7 @@
                     <option value="F">F</option>
                    </select>
                 </div>
-              </div>						  
+            </div>						  
 			</form>
 		  </div>		  
 		  <div class="modal-footer">
@@ -69,66 +69,8 @@
 			</div>
 		</div>
 	</div>
-	
-	<div class="modal fade" id="Examplemarks" tabindex="-1" aria-labelledby="ExamplemarksLabel" aria-hidden="true"> 
-	  <div class="modal-dialog">
-		<div class="modal-content">
-		  <div class="modal-header">
-			<h5 class="modal-title" id="ExamplemarksLabel"> Update Marks Data </h5>
-			<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-		  </div>
-		  <div class="modal-body">
-			<form>
-			  <div class="mb-3">
-				<label for="updatedmarksstd_id" class="col-form-label">STD_ID:</label>
-				<input type="number" class="form-control" ng-model="updatemarks.std_id" id="updatedmarksstd_id">
-			  </div>
-			  <div class="mb-3">
-				<label for="updatedmarksid" class="col-form-label">ID:</label>
-				<input type="number" class="form-control" ng-model="updatemarks.id" id="updatedmarksid">
-			  </div>
-			  <div class="mb-3"> 
-				<label for="updatedsubject" class="col-form-label">SUBJECT:</label>
-				<input type="text" class="form-control" ng-model="updatemarks.subject" id="updatedsubject">
-			  </div>
-			  <div class="mb-3">
-				<label for="updatedmarks" class="col-form-label">MARKS:</label>
-				<input type="number" class="form-control" ng-model="updatemarks.marks" id="updatedmarks">
-			  </div> 
-			  					  
-			</form>
-		  </div>		  
-		  <div class="modal-footer">
-			<button type="button" class="btn btn-primary" data-bs-dismiss="modal" ng-click="updateMarks(updatemarks)">Update</button>
-			<button type="button" class="btn btn-danger" data-bs-dismiss="modal">close</button>
-		  </div>
-		</div>
-	  </div>
-	</div>
-	
-	
-	
-	<div class="modal fade" id="static" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticLabel" aria-hidden="true">
-		<div class="modal-dialog">
-			<div class="modal-content">
-			  <div class="modal-header">
-				<h5 class="modal-title" id="staticLabel">Delete Record</h5>
-				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-			  </div>
-			  <div class="modal-body">
-				Do you want to delete record?
-			  </div>
-			  <div class="modal-footer">
-			    <button type="button" class="btn btn-primary"data-bs-dismiss="modal" ng-click="deleteMarks()">Yes</button>
-				<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">NO</button>
-			  </div>
-			</div>
-		</div>
-	</div>
-	
-
-	
-	
+</div>
+<div ng-controller="marksCtrl" ng-init="initialization()"> 
 	<div class="modal fade" id="example" tabindex="-1" aria-labelledby="exampleLabel" aria-hidden="true">
 		<div class="modal-dialog">
 			<div class="modal-content">
@@ -157,52 +99,42 @@
 					</div>
 					<div class="col-sm-2">
 						<button type="button" class="btn btn-primary" ng-click="addMarks(newmarks)">ADD</button>
-                    </div>
-					
-					
-					<div  class="table-responsive com-table"> 
-					
-						<table class="table table-hover table-striped">
-							<thead class="table-group-divider">
+					</div>
+					<div ng-show="marksList">
+						<table class="table table-bordered">
+							<thead>
 							<tr>
-								<th width="5%">std_id</th>
-								<th width="5%">id</th>
-								<th width="60%">subject</th>
-								<th width="10%">marks</th>
-								<th width="10%">##</th>
-								<th width="10%">##</th>
+								<th>std_id</th>
+								<th>id</th>
+								<th>subject</th>
+								<th>marks</th>
 							</tr>
 							</thead>
-						    <tbody>
+						<tbody>
 							<tr ng-repeat="marks in marksList">
-								<td width="5%">{{marks.std_id }}</td>
-								<td width="5%">{{marks.id }}</td>
-								<td width="60%">{{marks.subject}}</td>
-								<td width="10%">{{marks.marks}}</td>
-								<td width="10%">
-								<button type="button" class="btn btn-primary btn-sm" data-bs-dismiss="modal" ng-click="updatemarksform(marks)" data-bs-target="#Examplemarks">Update</button>
-								</td>
-								<td width="10%">
-								<button type="button" class="btn btn-danger btn-sm"data-bs-toggle="modal" ng-click="deletemarksform(marks.std_id)"data-bs-target="#static">Delete</button>
-								</td>
+								<td>{{marks.std_id }}</td>
+								<td>{{marks.id }}</td>
+								<td>{{marks.subject}}</td>
+								<td>{{marks.marks}}</td>
 							</tr>
-							</tbody>
+						</tbody>
 						</table>
-					</div>
-					
+					</div>	
 				</form>		
 			</div>
 			
 			<div class="modal-footer">
-				
+				<button type="button" class="btn btn-primary" data-bs-dismiss="modal" ng-click="updateMarks(updatemarks)">Update</button>
+				<button type="button" class="btn btn-danger" data-bs-dismiss="modal">Delete</button>
 				<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
 			</div>
 		</div>
 	</div>
 </div>
 
-	
-	
+
+
+
  
     <div class="container border m-5">
         <form>
@@ -260,13 +192,15 @@
 						<td width="5%">{{student.age}}</td>  
 						<td width="10%">{{student.gender}}</td>  
 						<td width="10%">
-							<button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" ng-click="updatestudentform(student)" data-bs-target="#exampleModal" >update</button>
+							<button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" ng-click="updateform(student)" data-bs-target="#exampleModal" >update</button>
 						</td>
 						<td width="10%">
-							<button type="button" class="btn btn-danger btn-sm"data-bs-toggle="modal" ng-click="deletestudentform(student.std_id)"data-bs-target="#staticBackdrop">Delete</button>
+							<button type="button" class="btn btn-danger btn-sm"data-bs-toggle="modal" ng-click="deleteform(student.std_id)"data-bs-target="#staticBackdrop">Delete</button>
 						</td>
 						<td width="10%">
-						    <button type="button" class="btn btn-success btn-sm" data-bs-toggle="modal" ng-click="viewmarks(student.std_id)" data-bs-target="#example" >Viewmarks</button>
+						    <button type="button" class="btn btn-success btn-sm" data-bs-toggle="modal" ng-click="viewmarks(student.std_id)" data-bs-target="#example" >Viewmarks
+								
+							</button>
 							
 						</td>
 					</tr>					

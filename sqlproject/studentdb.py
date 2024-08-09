@@ -23,7 +23,7 @@ class Database:
         conn.commit()
         print(cursorObj.rowcount, "data created successfully")
 
-    def create_marks(self, std_id,id,subject,marks):
+    def create_marks(self,std_id,id,subject,marks):
         conn = self.create_connection()
         cursorObj = conn.cursor()
         query = "INSERT INTO marks(std_id,id,subject,marks)VALUES(%s,%s,%s,%s)"
@@ -31,6 +31,8 @@ class Database:
         cursorObj.execute(query, val)
         conn.commit()
         print(cursorObj.rowcount, "data created successfully")
+
+
 
     def read_students(self):
         arr = []
@@ -55,6 +57,19 @@ class Database:
             arr.append(record)
         conn.close()
         return arr
+
+    def read_marks_student(self, std_id):
+        arr = []
+        conn = self.create_connection()
+        cursorObj = conn.cursor()
+        query = "SELECT * FROM marks WHERE std_id = %s"
+        cursorObj.execute(query, (std_id,))
+        records = cursorObj.fetchall()
+
+        for record in records:
+            arr.append(record)
+        return arr
+
 
     def update_student(self, std_id,name,age,gender):
         conn = self.create_connection()
