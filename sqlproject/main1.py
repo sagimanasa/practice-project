@@ -6,7 +6,6 @@ app = FastAPI()
 app.mount("/static", StaticFiles(directory="static"), name="static")
 studentdb=Database()
 class Student(BaseModel):
-    std_id:int
     name:str
     age:int
     gender:str
@@ -21,7 +20,7 @@ async def update_student(std_id,student:Student):
     return {"message":"sucess"}
 @app.put("/student")
 async def create_student(student:Student):
-    studentdb.create_student(student.std_id,student.name,student.age, student.gender)
+    studentdb.create_student(student.name,student.age,student.gender)
     return {"message":"sucess"}
 @app.get("/student")
 async def read_students():
@@ -32,7 +31,7 @@ async def read_students():
     return {"records":arr}
 
 class Marks(BaseModel):
-    std_id:int
+
     id:int
     subject:str
     marks:int
@@ -49,9 +48,9 @@ async def delete_marks_std_id(student_id):
 async def update_marks(marks_id,marks:Marks):
     studentdb.update_marks(marks_id,marks.marks,marks.subject)
     return {"message":"sucess"}
-@app.put("/marks")
-async def create_marks(marks:Marks):
-    studentdb.create_marks(marks.std_id,marks.id,marks.subject,marks.marks)
+@app.put("/marks/student_id/{student_id}")
+async def create_marks(student_id,marks:Marks):
+    studentdb.create_marks(student_id,marks.id,marks.subject,marks.marks)
     return {"message":"sucess"}
 @app.get("/marks")
 async def read_marks():
@@ -61,9 +60,9 @@ async def read_marks():
         arr.append({"std_id":marks[0],"id":marks[1],"subject":marks[2],"marks":marks[3]})
     return {"records":arr}
 
-@app.get("/marks/{student_id}")
-async def read_marks_student(std_id):
-    marksList = studentdb.read_marks_student(std_id)
+@app.get("/marks/student_id/{student_id}")
+async def read_marks_student(student_id):
+    marksList = studentdb.read_marks_student(student_id)
     arr = []
     for marks in marksList:
         arr.append({"std_id": marks[0], "id": marks[1], "subject": marks[2], "marks": marks[3]})

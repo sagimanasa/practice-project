@@ -70,11 +70,11 @@
 		</div>
 	</div>
 	
-	<div class="modal fade" id="Examplemarks" tabindex="-1" aria-labelledby="ExamplemarksLabel" aria-hidden="true"> 
+	<div class="modal fade" id="updatemodal" tabindex="-1" aria-labelledby="updatemodalLable" aria-hidden="true"> 
 	  <div class="modal-dialog">
 		<div class="modal-content">
 		  <div class="modal-header">
-			<h5 class="modal-title" id="ExamplemarksLabel"> Update Marks Data </h5>
+			<h5 class="modal-title" id="updatemodalLabel"> Update Marks Data </h5>
 			<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 		  </div>
 		  <div class="modal-body">
@@ -95,7 +95,7 @@
 				<label for="updatedmarks" class="col-form-label">MARKS:</label>
 				<input type="number" class="form-control" ng-model="updatemarks.marks" id="updatedmarks">
 			  </div> 
-			  					  
+			  					      
 			</form>
 		  </div>		  
 		  <div class="modal-footer">
@@ -180,7 +180,7 @@
 								<td width="60%">{{marks.subject}}</td>
 								<td width="10%">{{marks.marks}}</td>
 								<td width="10%">
-								<button type="button" class="btn btn-primary btn-sm" data-bs-dismiss="modal" ng-click="updatemarksform(marks)" data-bs-target="#Examplemarks">Update</button>
+								<button type="button" class="btn btn-primary btn-sm" data-bs-dismiss="modal" ng-click="updatemarksform(marks)" data-bs-target="#updatemodal">Update</button>
 								</td>
 								<td width="10%">
 								<button type="button" class="btn btn-danger btn-sm"data-bs-toggle="modal" ng-click="deletemarksform(marks.std_id)"data-bs-target="#static">Delete</button>
@@ -266,7 +266,7 @@
 							<button type="button" class="btn btn-danger btn-sm"data-bs-toggle="modal" ng-click="deletestudentform(student.std_id)"data-bs-target="#staticBackdrop">Delete</button>
 						</td>
 						<td width="10%">
-						    <button type="button" class="btn btn-success btn-sm" data-bs-toggle="modal" ng-click="viewmarks(student.std_id)" data-bs-target="#example" >Viewmarks</button>
+						    <button type="button" class="btn btn-success btn-sm" data-bs-toggle="modal" ng-click="getMarks(student.std_id)" data-bs-target="#example" >Viewmarks</button>
 							
 						</td>
 					</tr>					

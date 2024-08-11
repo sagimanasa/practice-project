@@ -9,7 +9,7 @@ angular.module('userApp', [])
 	
 	$scope.initialization = function(){
 		$scope.getStudent(); 
-		$scope.getMarks();
+		//$scope.getMarks();
 		$scope.listenerInit();
 	}
 	$scope.updatestudentform= function(student){	
@@ -93,7 +93,7 @@ angular.module('userApp', [])
     };
 	
 	$scope.updatemarksform= function(marks){	
-		$scope.updatemarksform={}
+		$scope.updatemarks={}
 		$scope.updatemarks.std_id=marks.std_id; 
 		$scope.updatemarks.id=marks.id; 
 		$scope.updatemarks.subject=marks.subject; 
@@ -103,16 +103,17 @@ angular.module('userApp', [])
 		$scope.deletestd_id=std_id
 	}
 	
-	$scope.getMarks = function() {
+	$scope.getMarks = function(std_id) {
 		console.log("##")
       $http({  
-            url: $scope.domain + "marks",
+            url: $scope.domain + "marks/student_id/"+std_id,
             dataType: 'json',  
             method: 'GET',    
             headers: {  
                 "Content-Type": "application/json"  
             }  
         }).then(function (response) {   
+				
             $scope.marksList = response["data"]["records"]; 		
         },function (error) {  
                console.log(error);  
@@ -122,7 +123,7 @@ angular.module('userApp', [])
 	
 	$scope.addMarks = function(marks) {
 		
-	  $http.put($scope.domain + "marks", JSON.stringify(marks), {
+	  $http.put($scope.domain + "marks/student_id"+student_id, JSON.stringify(marks), {
 		  headers: {  
                 "Content-Type": "application/json"  
             }
@@ -133,8 +134,8 @@ angular.module('userApp', [])
         });  			  
     };
 	$scope.updateMarks = function(marks) {
-		//console.log("##")
-	   $http.post($scope.domain + "marks/"+marks.marks_id, JSON.stringify(marks), {
+		console.log("##")
+	   $http.post($scope.domain + "marks/"+marks_id, JSON.stringify(marks), {
 		  headers: {  
                 "Content-Type": "application/json"  
             }
@@ -144,9 +145,9 @@ angular.module('userApp', [])
                console.log(error);  
          });
     };
-	$scope.deleteMarks = function() {
+	$scope.deleteMarks = function(marks_id) {
 		console.log("##")
-		url=$scope.domain + "marks/"+$scope.deletemarks_id
+		url=$scope.domain + "marks/marks_id"+marks_id,
 		
 		$http({
 		    url:url,
@@ -159,8 +160,15 @@ angular.module('userApp', [])
     };
 	
 	
-	
   });
+  
+  
+   
+  
+  
+  
+  
+  
   
   
   
