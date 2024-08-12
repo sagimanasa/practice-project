@@ -106,7 +106,8 @@ angular.module('userApp', [])
 	$scope.getMarks = function(std_id) {
 		console.log("##")
       $http({  
-            url: $scope.domain + "marks/student_id/"+std_id,
+            url: $scope.domain + "marks/student_id/"+std_id, 
+			
             dataType: 'json',  
             method: 'GET',    
             headers: {  
@@ -122,8 +123,8 @@ angular.module('userApp', [])
 	
 	
 	$scope.addMarks = function(marks) {
-		
-	  $http.put($scope.domain + "marks/student_id"+student_id, JSON.stringify(marks), {
+		console.log("##")
+	  $http.put($scope.domain + "marks/student_id/"+std_id, JSON.stringify(marks), {
 		  headers: {  
                 "Content-Type": "application/json"  
             }

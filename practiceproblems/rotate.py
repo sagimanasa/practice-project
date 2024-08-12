@@ -16,4 +16,3 @@ arr=[1,2,4,3]
 n=7
 rotate(arr,n)
 print(arr)
-
