@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="en" ng-app="userApp">
+<head>    
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+ 	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>  	
+    <script src="JavaScript.js"></script>  
+</head>
+
+<body>
+<div ng-controller="userCtrl" ng-init="initialization()"> 
+	<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"> 
+	  <div class="modal-dialog">
+		<div class="modal-content">
+		  <div class="modal-header">
+			<h5 class="modal-title" id="exampleModalLabel"> Update Data </h5>
+			<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+		  </div>
+		  <div class="modal-body">
+			<form>
+			  <div class="mb-3">
+				<label for="updatedstudentid" class="col-form-label">STD_ID:</label>
+				<input type="number" class="form-control" ng-model="updatestudent.std_id" id="updatedstudentid">
+			  </div>
+			  <div class="mb-3"> 
+				<label for="updatedstudentname" class="col-form-label">NAME:</label>
+				<input type="text" class="form-control" ng-model="updatestudent.name" id="updatedstudentname">
+			  </div>
+			  <div class="mb-3">
+				<label for="updatedstudentage" class="col-form-label">AGE:</label>
+				<input type="number" class="form-control" ng-model="updatestudent.age" id="updatedstudentage">
+			  </div> 
+			  <div class="mb-3">
+                <label for="updatedstudentgender" class="col-form-label">GENDER</label>
+                <div class="col-sm-10">
+					<select class="form-control" id="updatedstudentgender" ng-model="updatestudent.gender" style="width: 470px;">
+                    <option value="">Select your gender</option>
+                    <option value="M">M</option>
+                    <option value="F">F</option>
+                   </select>
+                </div>
+              </div>						  
+			</form>
+		  </div>		  
+		  <div class="modal-footer">
+			<button type="button" class="btn btn-primary" data-bs-dismiss="modal" ng-click="updateStudent(updatestudent)">Update</button>
+			<button type="button" class="btn btn-danger" data-bs-dismiss="modal">close</button>
+		  </div>
+		</div>
+	  </div>
+	</div>
+	<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+			  <div class="modal-header">
+				<h5 class="modal-title" id="staticBackdropLabel">Delete Record</h5>
+				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			  </div>
+			  <div class="modal-body">
+				Do you want to delete record?
+			  </div>
+			  <div class="modal-footer">
+			    <button type="button" class="btn btn-primary"data-bs-dismiss="modal" ng-click="deleteStudent()">Yes</button>
+				<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">NO</button>
+			  </div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="modal fade" id="updatemodal" tabindex="-1" aria-labelledby="updatemodalLable" aria-hidden="true"> 
+	  <div class="modal-dialog">
+		<div class="modal-content">
+		  <div class="modal-header">
+			<h5 class="modal-title" id="updatemodalLabel"> Update Marks Data </h5>
+			<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+		  </div>
+		  <div class="modal-body">
+			<form>
+			  <div class="mb-3">
+				<label for="updatedmarksstd_id" class="col-form-label">STD_ID:</label>
+				<input type="number" class="form-control" ng-model="updatemarks.std_id" id="updatedmarksstd_id">
+			  </div>
+			  <div class="mb-3">
+				<label for="updatedmarksid" class="col-form-label">ID:</label>
+				<input type="number" class="form-control" ng-model="updatemarks.id" id="updatedmarksid">
+			  </div>
+			  <div class="mb-3"> 
+				<label for="updatedsubject" class="col-form-label">SUBJECT:</label>
+				<input type="text" class="form-control" ng-model="updatemarks.subject" id="updatedsubject">
+			  </div>
+			  <div class="mb-3">
+				<label for="updatedmarks" class="col-form-label">MARKS:</label>
+				<input type="number" class="form-control" ng-model="updatemarks.marks" id="updatedmarks">
+			  </div> 
+			  					      
+			</form>
+		  </div>		  
+		  <div class="modal-footer">
+			<button type="button" class="btn btn-primary" data-bs-dismiss="modal" ng-click="updateMarks(updatemarks)">Update</button>
+			<button type="button" class="btn btn-danger" data-bs-dismiss="modal">close</button>
+		  </div>
+		</div>
+	  </div>
+	</div>
+	
+	
+	
+	<div class="modal fade" id="static" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+			  <div class="modal-header">
+				<h5 class="modal-title" id="staticLabel">Delete Record</h5>
+				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			  </div>
+			  <div class="modal-body">
+				Do you want to delete record?
+			  </div>
+			  <div class="modal-footer">
+			    <button type="button" class="btn btn-primary"data-bs-dismiss="modal" ng-click="deleteMarks()">Yes</button>
+				<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">NO</button>
+			  </div>
+			</div>
+		</div>
+	</div>
+	
+
+	
+	
+	<div class="modal fade" id="example" tabindex="-1" aria-labelledby="exampleLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleLabel">View marks</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+				<form>
+			
+					<div class="mb-3">
+						<label for="studentid" class="col-form-label">STD_ID:</label>
+						<input type="number" class="form-control" id="studentid">
+					</div>
+					<div class="mb-3">
+						<label for="marksid" class="col-form-label">ID:</label>
+						<input type="number" class="form-control" id="marksid">
+					</div>
+					<div class="mb-3">
+						<label for="subjectname" class="col-form-label">SUBJECT:</label>
+						<input type="text" class="form-control" id="subjectname">
+					</div>
+					<div class="mb-3">
+						<label for="marks" class="col-form-label">MARKS:</label>
+						<input type="number" class="form-control" id="marks">
+					</div>
+					<div class="col-sm-2">
+						<button type="button" class="btn btn-primary" ng-click="addMarks(newmarks)">ADD</button>
+                    </div>
+					
+					
+					<div  class="table-responsive com-table"> 
+					
+						<table class="table table-hover table-striped">
+							<thead class="table-group-divider">
+							<tr>
+								<th width="5%">std_id</th>
+								<th width="5%">id</th>
+								<th width="60%">subject</th>
+								<th width="10%">marks</th>
+								<th width="10%">##</th>
+								<th width="10%">##</th>
+							</tr>
+							</thead>
+						    <tbody>
+							<tr ng-repeat="marks in marksList">
+								<td width="5%">{{marks.std_id }}</td>
+								<td width="5%">{{marks.id }}</td>
+								<td width="60%">{{marks.subject}}</td>
+								<td width="10%">{{marks.marks}}</td>
+								<td width="10%">
+								<button type="button" class="btn btn-primary btn-sm" data-bs-dismiss="modal" ng-click="updatemarksform(marks)" data-bs-target="#updatemodal">Update</button>
+								</td>
+								<td width="10%">
+								<button type="button" class="btn btn-danger btn-sm"data-bs-toggle="modal" ng-click="deletemarksform(marks.std_id)"data-bs-target="#static">Delete</button>
+								</td>
+							</tr>
+							</tbody>
+						</table>
+					</div>
+					
+				</form>		
+			</div>
+			
+			<div class="modal-footer">
+				
+				<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+	
+	
+ 
+    <div class="container border m-5">
+        <form>
+		    <h2 class="text-center">STUDENT DATA</h2>					
+			<div class="row m-1">
+                <label for="addstudentname" class="col-sm-2 col-form-label">NAME</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="addstudentname" ng-model="newstudent.name" placeholder="Enter your name" style="width: 300px;" >
+                </div>
+            </div>
+			<div class="row m-1">
+                <label for="addstudentage" class="col-sm-2 col-form-label">AGE</label>
+                <div class="col-sm-10">
+                    <input type="number" class="form-control" id="addstudentage" ng-model="newstudent.age" placeholder="Enter your age" style="width: 300px;" >
+                </div>
+            </div>
+			<div class="row m-1">
+                <label for="addstudentgender" class="col-sm-2 col-form-label">GENDER</label>
+                <div class="col-sm-10">
+					<select class="form-control" id="addstudentgender" ng-model="newstudent.gender" style="width: 300px;">
+                    <option value="">Select your gender</option>
+                    <option value="M">M</option>
+                    <option value="F">F</option>
+                   </select>
+                </div>
+            </div>
+			
+		    <div class="row m-1 ">
+				<div class="col-sm-2">
+					<button type="button" class="btn btn-primary" ng-click="addStudent(newstudent)">ADD</button>
+                </div>
+            </div>
+        </form>
+    </div>
+	
+    <div class="container m-5 p-0">
+		<div class="table-responsive com-table"> 
+			<table class="table table-hover table-striped">  				
+				<thead class="table-dark">
+					<tr>  
+						<th width="5%">std_id</th>  
+						<th width="50%">name</th>  
+						<th width="5%">age</th>  
+						<th width="10%">gender</th>  
+						<th width="10%"></th>
+						<th width="10%"></th>
+						<th width="10%"></th>
+					</tr>				
+				</thead>  
+				
+				<tbody class="table-group-divider">  	  
+					<tr ng-repeat="student in studentList" c>  
+						<td width="5%">{{student.std_id}}</td>  
+						<td width="50%">{{student.name}}</td>  
+						<td width="5%">{{student.age}}</td>  
+						<td width="10%">{{student.gender}}</td>  
+						<td width="10%">
+							<button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" ng-click="updatestudentform(student)" data-bs-target="#exampleModal" >update</button>
+						</td>
+						<td width="10%">
+							<button type="button" class="btn btn-danger btn-sm"data-bs-toggle="modal" ng-click="deletestudentform(student.std_id)"data-bs-target="#staticBackdrop">Delete</button>
+						</td>
+						<td width="10%">
+						    <button type="button" class="btn btn-success btn-sm" data-bs-toggle="modal" ng-click="getMarks(student.std_id)" data-bs-target="#example" >Viewmarks</button>
+							
+						</td>
+					</tr>					
+				</tbody> 
+				
+			</table> 
+			
+		</div>		
+	</div>       
+	
+	 
+</div>  
+</body>
+</html>
