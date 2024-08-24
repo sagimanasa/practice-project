@@ -36,14 +36,25 @@
 #     print("Not perfect number")
 
 
-n=12
-sum=0
-for i in range(1,n):
-    if(n%i==0):
-        sum=sum+i
-if(sum==n):
-    print("perfect number")
-else:
-    print("Not perfect number")
+# n=12
+# sum=0
+# for i in range(1,n):
+#     if(n%i==0):
+#         sum=sum+i
+# if(sum==n):
+#     print("perfect number")
+# else:
+#     print("Not perfect number")
 
 
+def perfect_number(n):
+    sum=0
+    for i in range(1,n):
+        if n%i==0:
+            sum=sum+i
+    if sum==n:
+        print("perfect")
+    else:
+        print("not perfect")
+n=6
+perfect_number(n)

@@ -12,3 +12,5 @@ arr=[9,17,2,7,15,21]
 n=len(arr)
 print(second_largest(arr,n))
 # output:17
+
+

@@ -9,4 +9,4 @@ def fibonocci(n):
     for value in range(2,n):
         result.append(result[value-1]+result[value-2])
     return result
-print(fibonocci(30))
+print(fibonocci(10))
