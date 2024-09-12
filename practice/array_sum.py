@@ -5,3 +5,5 @@ def subarray_sum(arr):
     return result
 arr=[1,3,5,7]
 print(subarray_sum(arr))
+
+
