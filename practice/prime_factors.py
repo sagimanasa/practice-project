@@ -5,7 +5,7 @@ def prime_fact(n):
         if n%i==0:
             factors.append(i)
             n=n//i
-            print(n)
+            #print(n)
         else:
             i=i+1
     return factors

@@ -9,3 +9,12 @@ def even_odd(arr):
     return even,odd
 arr=[1,3,4,6,8,9,0]
 print(even_odd(arr))
+
+# def odd_count(arr):
+#     odd=0
+#     for i in arr:
+#         if i%2!=0:
+#             odd=odd+1
+#     return odd
+# arr=[1,3,4,6,8,9,0]
+# print(odd_count(arr))
