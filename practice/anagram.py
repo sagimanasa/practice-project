@@ -3,7 +3,7 @@ def anagram(str1,str2):
             return True
     return False
 str1="manu" # this will return false
-str2="hony"
+str2="honey"
 # str1="listen" # this returns true
 # str2="silent"
 print(anagram(str1,str2))

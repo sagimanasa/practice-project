@@ -6,4 +6,4 @@ def subarray_sum(arr):
 arr=[1,3,5,7]
 print(subarray_sum(arr))
 
-
+#output:16
