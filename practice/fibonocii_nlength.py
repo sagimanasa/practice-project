@@ -10,3 +10,5 @@ def fibonocci(n):
         result.append(result[value-1]+result[value-2])
     return result
 print(fibonocci(10))
+
+
