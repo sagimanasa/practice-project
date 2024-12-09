@@ -1,0 +1,11 @@
+h1{
+    color: #fc03d7;
+}
+p{
+    color: rgb(3, 36, 252);
+}
+.my-container{
+    height: 50vh;
+    background-color:pink;
+    text-align: center;  
+}

@@ -1,3 +1,4 @@
+##Assignment1 questions
 ##even or odd
 # def is_number(num):
 #     if num%2==0:
@@ -32,6 +33,7 @@
 #     print(num1)
 #     print(num2)
 # num1=3
+
 # num2=2
 # swap(num1,num2)
 # #output:2

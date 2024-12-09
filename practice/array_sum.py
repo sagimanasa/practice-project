@@ -3,7 +3,8 @@ def subarray_sum(arr):
     for i in arr:
         result=result+i
     return result
-arr=[1,3,5,7]
+arr=[1,3,5,7] #1+3+5+7
 print(subarray_sum(arr))
 
 #output:16
+

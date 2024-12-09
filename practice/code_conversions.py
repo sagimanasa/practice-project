@@ -7,5 +7,5 @@ def code_conversion(arr):
     return result
 arr=[6,3,5,2,9,1]
 print(code_conversion(arr))
-
+#output:10
 

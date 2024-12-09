@@ -6,8 +6,10 @@
 #     return result
 # n="my name is manasa"
 # print(camel_case(n))
+#output:myNameIsManasa
 
 def camel_case(s):
     return s.title()
 s="iam writing code"
 print(camel_case(s))
+#ouput:Iam Writing Code
